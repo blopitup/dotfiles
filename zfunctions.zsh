@@ -48,15 +48,6 @@ mp () {
 #}
 #
 
-function sherlock {
-    source ~/ENV/sherlock/bin/activate
-    cd $HOME/Appknox/sherlock
-}
-
-function irene {
-    source ~/ENV/irene/bin/activate
-    cd $HOME/Appknox/irene
-}
 
 function m {
     if [[ $1 = "" ]]; then
@@ -87,8 +78,4 @@ function server() {
     # Set the default Content-Type to `text/plain` instead of `application/octet-stream`
     # And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
     python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
-}
-
-function tunnel {
-    ngrok -subdomain=subho007 $1
 }
